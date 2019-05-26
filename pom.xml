@@ -9,7 +9,7 @@
   <packaging>pom</packaging>
   <version>1.0-SNAPSHOT</version>
   <modules>
-    <module>factory-pattern</module>
+    <module>java-pattern</module>
   </modules>
 
   <name>designpattern-demo</name>
