@@ -5,7 +5,7 @@ package cn.zcp.demo.singleton;
  * @version 1.0
  * @Time 2019-05-11 23:20
  * @describe designpattern-demo
- * 饱汉式
+ * 懒汉式
  */
 public class SingletonB {
 

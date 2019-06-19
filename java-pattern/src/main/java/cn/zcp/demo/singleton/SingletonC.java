@@ -30,6 +30,14 @@ public class SingletonC {
 
     private SingletonC(){
         System.out.println("构造方法....");
+        //方式反射侵入1
+        synchronized (SingletonC.class){
+            if(!initialized){
+                initialized = true;
+            }else{
+                throw new RuntimeException("单例被侵入...");
+            }
+        }
     }
 
     static class SingletonInstance{
@@ -41,5 +49,9 @@ public class SingletonC {
     public static SingletonC getInstance(){
         return SingletonInstance.SINGLETONC;
     }
+
+
+    //方式反射侵入0
+    private static boolean initialized = false;
 
 }
