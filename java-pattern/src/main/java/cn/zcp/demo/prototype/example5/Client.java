@@ -12,6 +12,8 @@ public class Client {
 
 		//通过克隆来获取新的实例
 		PersonalOrder oa2 = (PersonalOrder)oa1.clone();
+		//输出克隆出来的对象的值
+		System.out.println(oa1==oa2);
 		//修改它的数量
 		oa2.setOrderProductNum(80);
 		//输出克隆出来的对象的值

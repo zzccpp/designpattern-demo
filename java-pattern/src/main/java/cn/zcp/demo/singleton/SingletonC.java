@@ -32,7 +32,7 @@ public class SingletonC {
         System.out.println("构造方法....");
         //方式反射侵入1
         synchronized (SingletonC.class){
-            if(!initialized){
+            if(!initialized){//可能出现更改initialized状态来反复创建,解决方案initialized放入内部类
                 initialized = true;
             }else{
                 throw new RuntimeException("单例被侵入...");
@@ -40,7 +40,7 @@ public class SingletonC {
         }
     }
 
-    static class SingletonInstance{
+    private static class SingletonInstance{
         private final static SingletonC SINGLETONC = new SingletonC();
         static{
             System.out.println("子类静态语句块....");
