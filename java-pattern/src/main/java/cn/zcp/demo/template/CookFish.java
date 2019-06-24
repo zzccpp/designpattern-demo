@@ -6,5 +6,10 @@ package cn.zcp.demo.template;
  * @Time 2019-06-24 14:30
  * @describe designpattern-demo <描述>
  */
-public class CookFish {
+public class CookFish extends CookDinner {
+
+    @Override
+    void cookDishe() {
+        System.out.println("开始放油,开始做鱼...");
+    }
 }
