@@ -17,6 +17,22 @@ package cn.zcp.demo.observer;
  * 优点： 1、观察者和被观察者是抽象耦合的。 2、建立一套触发机制。
  * 缺点： 1、如果一个被观察者对象有很多的直接和间接的观察者的话，将所有的观察者都通知到会花费很多时间。 2、如果在观察者和观察目标之间有循环依赖的话，观察目标会触发它们之间进行循环调用，可能导致系统崩溃。 3、观察者模式没有相应的机制让观察者知道所观察的目标对象是怎么发生变化的，而仅仅只是知道观察目标发生了变化。
  *
+ * 比如:同事与前台，同事是观察者，前台为被观察者，同事观察着前台动作(通知),前台拥有所有同事对象，当前台有快递，直接通知所有同事，同事被观察到，则去查看是否是自己的快递
+ *
  */
 public class Main {
+
+    public static void main(String[] args) {
+
+        //观察者注册到被观察者
+        Subject subject = new Subject();
+        subject.attach(new NBAObserver("张三"));
+        subject.attach(new StockObserver("李四"));
+        subject.attach(new NBAObserver("张三"));
+        subject.attach(new StockObserver("王五"));
+        subject.attach(new NBAObserver("丽丽"));
+
+        System.out.println("老板来了...");
+        subject.notifyAllObserver();
+    }
 }
